@@ -6,13 +6,17 @@ body {
     color: #fff;
 }
 h2 {
-    font-family: righteous;
+    font-family: righteous, sans-serif;
 }
 p, h4 {
     font-family: "Montserrat", sans-serif;
 }
+section[id] {
+    scroll-margin-top: 90px;
+}
 
 html {
+    scroll-behavior: smooth;
     scrollbar-color: #ffd369 #212121;
 }
 
@@ -166,6 +170,13 @@ html {
     & h2 {
         display: inline;
         margin: 0 0 0 6em;
+        
+        view-timeline-name: --text;
+        view-timeline-axis: block;
+        animation-timeline: --text;
+        animation-name: show-text;
+        animation-fill-mode: both;
+        animation-range: entry 50% cover 80%;
     }
 }
 
@@ -255,6 +266,13 @@ html {
 
     & h2 {
         margin: 0 0 2em 6em;
+        
+        view-timeline-name: --text;
+        view-timeline-axis: block;
+        animation-timeline: --text;
+        animation-name: show-text;
+        animation-fill-mode: both;
+        animation-range: entry 50% cover 80%;
 
     }
     .education-card {
@@ -271,6 +289,7 @@ html {
         view-timeline-axis: block;
         animation-timeline: --card;
         animation-name: show-horizontal;
+        animation-fill-mode: both;
         animation-range: entry 15% cover 25%;
     }
 }
@@ -288,14 +307,39 @@ html {
     
 }
 .about-me {
+
     & h2 {
         margin: 0 0 2em 6em;
+
+        view-timeline-name: --text;
+        view-timeline-axis: block;
+        animation-timeline: --text;
+        animation-name: show-text;
+        animation-fill-mode: both;
+        animation-range: entry 50% cover 80%;
     }
     & p {
         margin: 0 14em 1em 14em; 
         font-family: "Montserrat", sans-serif;
+
+        view-timeline-name: --text;
+        view-timeline-axis: block;
+        animation-timeline: --text;
+        animation-name: show-text;
+        animation-range: entry 30% cover 40%;
     }
 }
+
+@keyframes show-text {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+    
+}
+
 footer {
     margin-top: 8em;
 
@@ -369,6 +413,9 @@ footer {
             margin: 0 10em 1em 10em;
         }
     }
+    .footer-content {
+        margin: 0 3em !important;
+    }
 }
 
 @media (max-width: 768px) {
@@ -432,33 +479,12 @@ footer {
             font-size: 0.8em;
             margin: 0 6em 1em 6em;
         }
-    }
-    .footer-content {
-        & h6 {
-            font-size: 0.5em;
-        }
-        & .social-links a {
-            border-radius: 2.2em;
-            width: 1.5em;
-            height: 1.5em;
-            border: none;
-            text-align: center;
-            align-content: center;
-        }
-        & .social-links a:hover {
-            background: transparent;
-            transition: background 0.3s ease;
-        }
         
-        & .social-links a:hover i {
-            color: #eeb42c !important;
-            transition: color 0.3s ease;
-        }
-
     }
 }
 
 @media (max-width: 480px) {
+
     .projects .card .imgBx {
         margin: 50px 0 0 25px;
         width: 180px;
@@ -476,6 +502,9 @@ footer {
     .content h4 {
         font-size: 1.5em;
     }
+    .content p {
+        font-size: 0.8em;
+    }
     .projects h2 {
         font-size: 1.2em;
     }
@@ -483,7 +512,7 @@ footer {
     .personal-info {
         
         & h1 {
-            font-size: 1.8em;
+            font-size: 1.5em;
         }
         
         & h3 {
@@ -492,12 +521,8 @@ footer {
         & div {
             width: 350px;
         }
-        & .social-links {
-            justify-content: center;
-            gap: 1em;
-        }
     }
-
+    
     .navbar div {
         height: 3em;
     }
@@ -513,8 +538,57 @@ footer {
             margin: 1em 4em 1em 4em;
         }
     }
+    .social-links {
+
+        & a {
+            border-radius: 2.2em;
+            width: 1.5em;
+            height: 1.5em;
+            border: none;
+            text-align: center;
+            align-content: center;
+        }
+        & a:hover {
+            background: transparent;
+            transition: background 0.3s ease;
+        }
+        
+        & a:hover i {
+            color: #eeb42c !important;
+            transition: color 0.3s ease;
+        }
+    }
+    .button-primary {
+        display: inline-block;
+        background-color: transparent;
+        text-align: center;
+        align-content: center;
+        border-radius: 4.5em;
+    }
+    
+    .button-primary a {
+        display: inline-block;
+        width: 8em;
+        height: 2.5em;
+        background-color: #ffd369;
+        font-size: 0.7em;
+        font-weight: bold;
+        border: 0.15em solid #ffd369;
+        color: #000;
+        text-decoration: none;
+        transition: all 0.7s ease;
+    }
+    
+    .button-primary a:hover {
+        color: #ffd369;
+        background-color: #000;
+        border: 0.15em solid #ffd369;
+        transition: background-color 0.5s ease;
+    }
+
     .footer-content {
         & h6 {
+            margin: 0.5em 0 0 0;
             font-size: 0.8em;
         }
     }
